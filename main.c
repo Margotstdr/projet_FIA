@@ -8,8 +8,10 @@ int main() {
     // Création d'un pilote
     Pilote p = {"Verstappen", "Max", "Pays-Bas", "Red Bull Racing", 258, 1, 27, 1};
 
+    liste_e = ()
     // Création d'une écurie
     Ecurie e = {"Red Bull Racing", "Autriche", 2005, "Christian Horner", 1};
+    liste_e.append(e)
 
     // Création d'un Grand Prix
     Grand_Prix gp;

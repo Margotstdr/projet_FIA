@@ -11,14 +11,14 @@ typedef struct {
     char nom[50];
     char prenom[50];
     char nationalite[50];
-    struct Ecurie *ecurie;        // référence vers le nom d'une écurie existante
+    char ecurie[50];        // référence vers le nom d'une écurie existante
     int points;
-    int nuemro;
+    int numero;
     int age;
     int actif;
 } Pilote;
 
 void afficherPilote(const Pilote p);
-void ajouterPilote()
+void ajouterPilote(Pilote *p);
 
 #endif
