@@ -67,3 +67,28 @@ void supprimerEcurie (Ecurie **ecuries, int *nbEcuries, int index){
         exit(EXIT_FAILURE); // renvoie 1 si ça réussi - 0 si ça n'a pas marché
     }
 }
+
+void afficherEcurie (Ecurie *ecurie, int *nbEcuries){
+    //cas de base : s'il n'y a pas de pilotes donc actif=0, alors pas d'écurie
+    if(*nbEcuries ==0){
+        printf("Aucune écurie sur la piste.");
+    }
+    for(int i =0; i<(*nbEcuries);i++){
+        Ecurie oneEcurie = ecurie[i];
+
+        if(oneEcurie.actif ==0){
+            printf("[%d] %s (INACTIVE)\n\n", i + 1, oneEcurie.nom); //on numérote les écuries à partir
+            //de 1 (i+1)
+            continue;
+        }
+        printf("[%d] Nom : %s\n", i + 1, oneEcurie.nom);
+        printf("    Pays : %s\n",  oneEcurie.pays);
+        printf("    Année de création : %d\n", oneEcurie.anneeCreation);
+        printf("    Directeur : %s\n", oneEcurie.directeur);
+        printf("    Points : %d\n", oneEcurie.points);
+        printf("    Pilote 1 : %s (%d pts)\n", oneEcurie.p1.nom, oneEcurie.p1.points);
+        printf("    Pilote 2 : %s (%d pts)\n", oneEcurie.p2.nom, oneEcurie.p2.points);
+        printf("---------------------------------------\n");
+    }
+}
+
