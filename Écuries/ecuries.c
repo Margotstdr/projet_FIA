@@ -3,7 +3,7 @@
 #include "ecuries.h"
 #include "pilotes.h"
 
-void ajouterEcurie(Ecurie **ecuries, int *nbEcuries) {
+void ajouterEcurie(Ecurie **ecuries, int *nbEcuries) { //nbEcuries le nombre d'écuries ecuries
         // on augmente la taille du tableau d'une case
         *ecuries = realloc(*ecuries, (*nbEcuries + 1) * sizeof(Ecurie));
         if (*ecuries == NULL) {
@@ -13,39 +13,57 @@ void ajouterEcurie(Ecurie **ecuries, int *nbEcuries) {
 
         Ecurie nouvelleEcurie;
 
-    printf("\n--- Ajouter une nouvelle écurie ---\n");
-    printf("Nom de l'écurie : ");
-    scanf(" %[^\n]", nouvelleEcurie.nom);
+        printf("\n--- Ajouter une nouvelle écurie ---\n");
+        printf("Nom de l'écurie : ");
+        scanf(" %[^\n]", nouvelleEcurie.nom);
 
-    printf("Pays : ");
-    scanf(" %[^\n]", nouvelleEcurie.pays);
+        printf("Pays : ");
+        scanf(" %[^\n]", nouvelleEcurie.pays);
 
-    printf("Année de création : ");
-    scanf("%d", &nouvelleEcurie.anneeCreation);
+        printf("Année de création : ");
+        scanf("%d", &nouvelleEcurie.anneeCreation);
 
-    printf("Directeur : ");
-    scanf(" %[^\n]", nouvelleEcurie.directeur);
+        printf("Directeur : ");
+        scanf(" %[^\n]", nouvelleEcurie.directeur);
 
-    nouvelleEcurie.points = 0;
-    nouvelleEcurie.actif = 1;
+        nouvelleEcurie.points = 0;
+        nouvelleEcurie.actif = 1;
 
-    // Ajout à la fin du tableau
-    (*ecuries)[*nbEcuries] = nouvelleEcurie;
-    (*nbEcuries)++;
-    
-    printf("Écurie ajoutée avec succès ")
+        // Ajout à la fin du tableau de notre nouvelle écurie
+        (*ecuries)[*nbEcuries] = nouvelleEcurie;
+        (*nbEcuries)++;
 
-
+        printf("Écurie ajoutée avec succès ");
 }
 
-int majPoints (Pilote p1, Pilote p2){
+void majPointsEcurie(Ecurie *ecurie) {
+        ecurie->points = ecurie->p1.points + ecurie->p2.points;
+    //dans cette fonction on va simplement copier les valeurs des pilotes 1
+    // et 2 puis en faire l'addition !
+    }
 
-}
+void supprimerEcurie (Ecurie **ecuries, int *nbEcuries, int index){
+    if(index <0 || index >= *nbEcuries){
+        printf("Indice écurie invalide\n");
+        return;
+    }
+    //on commence par l'état des pilotes
+    (*ecuries)[index].p1.actif = 0;
+    (*ecuries)[index].p2.actif = 0;
 
-void supprimerEcurie (Ecurie *ecurie){
+    //on décale les écuries suivantes en écrasant les données de l'écurie à supprimer
+    for(int i = index; i< *nbEcuries -1; i++){
+        (*ecuries)[i] = (*ecuries)[*nbEcuries+1];
+    }
 
-}
+    //on réduit la taille du tableau --> nbEcuries. Donc il faut "réallouer" un nouvelle espace
+    //mémoire plus petit
+    (*nbEcuries)--;
+    *ecuries = realloc(*ecuries, (*nbEcuries)*(sizeof(Ecurie)));
 
-void afficherEcurie (Ecurie *ecurie){
-
+    //on vérifie que l'allocation a bien marché
+    if((*ecuries) ==NULL && nbEcuries>0){
+        perror("Erreur realloc"); //equivalent du try/except en Python ! --> va renvoyer 
+        exit(EXIT_FAILURE); // renvoie 1 si ça réussi - 0 si ça n'a pas marché
+    }
 }
