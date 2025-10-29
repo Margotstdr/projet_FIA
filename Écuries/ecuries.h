@@ -2,6 +2,7 @@
 
 #ifndef ECURIES_H
 #define ECURIES_H
+#include "Pilotes/pilotes.h"
 
 typedef struct {
     char nom[50];
@@ -12,3 +13,4 @@ typedef struct {
 } Ecurie;
 
 #endif
+

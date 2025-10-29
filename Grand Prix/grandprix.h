@@ -3,6 +3,8 @@
 #ifndef GRAND_PRIX_H
 #define GRAND_PRIX_H
 
+struct Pilote;
+
 typedef struct {
     int jour;
     int mois;
@@ -20,8 +22,9 @@ typedef struct {
     char nationalite[50];
     int position;
     char tempsRealise[20];
-    int pointsObtenus;
+    struct Pilote *pilote;
 } Resultats_Course;
+
 
 typedef struct {
     char nomCircuit[50];
@@ -29,10 +32,9 @@ typedef struct {
     int nombreTours;
     Date date;
     Heure horaire;
-    Resultats_Course resultats[20];
+    Resultats_Course resultats;     // Tableau pour stocker les résultats des pilotes
     int nombreResultats;
     int Actif;
 } Grand_Prix;
 
 #endif
-
