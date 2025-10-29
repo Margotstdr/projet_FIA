@@ -9,7 +9,7 @@ Ecurie ecuries[5] = {{"Red Bull Racing", "Autriche", 0, 2005, "Christian Horner"
                      {"McLaren Racing", "Royaume-Uni", 0, 1966, "Andrea Stella", 1},
                      {"Aston Martin","Royaume-Uni", 0, 2021, "Mike Krack", 1} };
 
-// Initialisation des pilotes Pilote
+// Initialisation des pilotes
 Pilote pilotes[10] = {{"Verstappen", "Max", "Pays-Bas", "Red Bull Racing", 0, 1, 27, 1},
                       {"Perez", "Sergio", "Mexique", "Red Bull Racing", 0, 11, 34, 1},
                       {"Leclerc", "Charles", "Monaco","Scuderia Ferrari", 0, 16, 27, 1},
@@ -21,8 +21,8 @@ Pilote pilotes[10] = {{"Verstappen", "Max", "Pays-Bas", "Red Bull Racing", 0, 1,
                       {"Alonso", "Fernando", "Espagne", "Aston Martin", 0, 14, 43, 1},
                       {"Stroll", "Lance", "Canada", "Aston Martin", 0, 18, 26, 1} };
 
-// Initialisation d'un Grand Prix avec
-résultats GrandPrix gp1;
+// Initialisation d'un Grand Prix avec résultats
+GrandPrix gp1;
 strcpy(gp1.nomCircuit, "Circuit de Monaco");
 strcpy(gp1.pays, "Monaco");
 gp1.nombreTours = 78;

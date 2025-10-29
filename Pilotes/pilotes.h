@@ -19,6 +19,6 @@ typedef struct {
 } Pilote;
 
 void afficherPilote(const Pilote p);
-void ajouterPilote(Pilote *p);
+void ajouterPilote();
 
 #endif
