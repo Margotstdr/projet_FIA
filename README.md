@@ -1,6 +1,4 @@
-# projet_FIA
-
-# 🏎️ F1 Managment Software 
+# 🏎️ F1 Managment Software (projet_FIA)
 
 ## Aim of our project 
 
