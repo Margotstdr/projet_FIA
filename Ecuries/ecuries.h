@@ -7,6 +7,7 @@
 typedef struct {
     char nom[50];
     char pays[50];
+    int points;
     int anneeCreation;
     char directeur[50];
     int actif;

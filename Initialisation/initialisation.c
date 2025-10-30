@@ -1,4 +1,4 @@
-#include "Écuries/curies.h"
+#include "Ecuries/ecuries.h"
 #include "Pilotes/pilotes.h"
 
 
@@ -10,18 +10,34 @@ Ecurie ecuries[5] = {{"Red Bull Racing", "Autriche", 0, 2005, "Christian Horner"
                      {"Aston Martin","Royaume-Uni", 0, 2021, "Mike Krack", 1} };
 
 // Initialisation des pilotes
-Pilote pilotes[10] = {{"Verstappen", "Max", "Pays-Bas", "Red Bull Racing", 0, 1, 27, 1},
-                      {"Perez", "Sergio", "Mexique", "Red Bull Racing", 0, 11, 34, 1},
-                      {"Leclerc", "Charles", "Monaco","Scuderia Ferrari", 0, 16, 27, 1},
-                      {"Sainz","Carlos", "Espagne", "Scuderia Ferrari", 0, 55,30, 1},
-                      {"Hamilton", "Lewis", "Royaume-Uni", "Mercedes-AMG", 0, 44, 39, 1},
-                      {"Russell", "George", "Royaume-Uni", "Mercedes-AMG", 0, 63, 26, 1},
-                      {"Norris", "Lando", "Royaume-Uni", "McLaren Racing", 0, 4, 25, 1},
-                      {"Piastri", "Oscar", "Australie", "McLaren Racing", 0, 81, 23, 1},
-                      {"Alonso", "Fernando", "Espagne", "Aston Martin", 0, 14, 43, 1},
-                      {"Stroll", "Lance", "Canada", "Aston Martin", 0, 18, 26, 1} };
+void initialiserPilotes() {
+    // Tableau temporaire pour initialisation
+    Pilote initPilotes[10] = {
+        {"Verstappen", "Max", "Pays-Bas", "Red Bull Racing", 0, 1, 27, 1},
+        {"Perez", "Sergio", "Mexique", "Red Bull Racing", 0, 11, 34, 1},
+        {"Leclerc", "Charles", "Monaco","Scuderia Ferrari", 0, 16, 27, 1},
+        {"Sainz","Carlos", "Espagne", "Scuderia Ferrari", 0, 55,30, 1},
+        {"Hamilton", "Lewis", "Royaume-Uni", "Mercedes-AMG", 0, 44, 39, 1},
+        {"Russell", "George", "Royaume-Uni", "Mercedes-AMG", 0, 63, 26, 1},
+        {"Norris", "Lando", "Royaume-Uni", "McLaren Racing", 0, 4, 25, 1},
+        {"Piastri", "Oscar", "Australie", "McLaren Racing", 0, 81, 23, 1},
+        {"Alonso", "Fernando", "Espagne", "Aston Martin", 0, 14, 43, 1},
+        {"Stroll", "Lance", "Canada", "Aston Martin", 0, 18, 26, 1}
+    };
 
-// Initialisation d'un Grand Prix avec résultats
+    nbPilotes = 10;
+    pilotes = malloc(nbPilotes * sizeof(Pilote));
+    if (pilotes == NULL) {
+        printf("Erreur d'allocation mémoire pour les pilotes.\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < nbPilotes; i++) {
+        pilotes[i] = initPilotes[i];
+    }
+}
+
+// Initialisation d'un Grand_Prix avec résultats
 GrandPrix gp1;
 strcpy(gp1.nomCircuit, "Circuit de Monaco");
 strcpy(gp1.pays, "Monaco");
@@ -32,7 +48,7 @@ gp1.nombreResultats = 10;
 gp1.actif = 1;
 
 
-// Résultats du Grand Prix (exemple pour les 10 premières positions)
+// Résultats du Grand_Prix (exemple pour les 10 premières positions)
 ResultatCourse resultats[10] = {{"Verstappen", "Max", "Pays-Bas", 1, "1:44:12.456", 25},
                                 {"Leclerc", "Charles", "Monaco", 2, "1:44:18.234", 18},
                                 {"Hamilton","Lewis", "Royaume-Uni", 3, "1:44:25.678", 15},

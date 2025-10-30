@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ecuries.h"
-#include "pilotes.h"
+#include "Ecuries/ecuries.h"
+#include "Pilotes/pilotes.h"
 
 void ajouterEcurie(Ecurie **ecuries, int *nbEcuries) {
         // on augmente la taille du tableau d'une case

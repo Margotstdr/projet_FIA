@@ -1,7 +1,7 @@
 // STRUCTURES DATE, HEURE, RESULTATS_COURSE, GRAND_PRIX
 
-#ifndef GRAND_PRIX_H
-#define GRAND_PRIX_H
+#ifndef GRANDPRIX_H
+#define GRANDPRIX_H
 
 struct Pilote;
 
