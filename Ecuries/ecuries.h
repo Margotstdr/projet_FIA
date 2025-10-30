@@ -11,6 +11,9 @@ typedef struct {
     int anneeCreation;
     char directeur[50];
     int actif;
+    int points;
+    Pilote p1;
+    Pilote p2;
 } Ecurie;
 
 #endif
